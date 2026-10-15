@@ -1,0 +1,37 @@
+{
+  "name": "receipt-verifier",
+  "version": "1.0.0",
+  "description": "Checks a Broadcastwell receipt against the published Absence Index dataset and the public API, with no trust in Broadcastwell required.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Broadcastwell LLC <hello@broadcastwell.com>",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "receipt-verifier": "bin/verify.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Broadcastwell/receipt-verifier.git"
+  },
+  "homepage": "https://github.com/Broadcastwell/receipt-verifier",
+  "bugs": {
+    "url": "https://github.com/Broadcastwell/receipt-verifier/issues"
+  },
+  "keywords": [
+    "receipt",
+    "verification",
+    "sha-256",
+    "absence-index",
+    "open-data"
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this tool, please cite it as below."
+type: software
+title: "Broadcastwell receipt verifier"
+abstract: "A zero-dependency tool that checks a Broadcastwell receipt against the published Absence Index dataset and the public API, so anyone can check a claim without trusting Broadcastwell."
+authors:
+  - name: "Broadcastwell LLC"
+    email: hello@broadcastwell.com
+version: 1.0.0
+date-released: 2026-10-15
+license: MIT
+repository-code: "https://github.com/Broadcastwell/receipt-verifier"
+url: "https://broadcastwell.github.io/receipt-verifier/"
+keywords:
+  - receipts
+  - verification
+  - SHA-256
+  - open data
+references:
+  - type: dataset
+    title: "The Absence Index: September 2026 Release 2026-09"
+    authors:
+      - name: "Broadcastwell LLC"
+    doi: 10.5281/zenodo.22907695
+    url: "https://zenodo.org/records/22907695"
+    license: CC-BY-4.0
+    date-released: 2026-09-23

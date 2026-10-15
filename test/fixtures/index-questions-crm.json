@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "text": "What is the best CRM for a growing B2B sales team?",
+    "type": "best option",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  },
+  {
+    "id": "2",
+    "text": "Which CRM is best for managing a complex sales pipeline?",
+    "type": "specific workflow",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  },
+  {
+    "id": "3",
+    "text": "What are the top CRM tools for a mid-market company?",
+    "type": "top tools",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  },
+  {
+    "id": "4",
+    "text": "What are good alternatives to a traditional CRM?",
+    "type": "alternative",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  },
+  {
+    "id": "5",
+    "text": "Which CRM options work well for a small sales team that is scaling?",
+    "type": "best option",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  },
+  {
+    "id": "6",
+    "text": "What CRM should a revenue team consider when replacing spreadsheets?",
+    "type": "specific workflow",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  },
+  {
+    "id": "7",
+    "text": "How do the main CRM platforms compare for reporting and forecasting?",
+    "type": "buyer evaluation",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  },
+  {
+    "id": "8",
+    "text": "Which CRM approach is better for a team with multiple sales motions?",
+    "type": "buyer evaluation",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  },
+  {
+    "id": "9",
+    "text": "What should a buyer evaluate in a CRM?",
+    "type": "buyer evaluation",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  },
+  {
+    "id": "10",
+    "text": "How can a sales team use a CRM to improve handoffs and follow-up?",
+    "type": "specific workflow",
+    "valid_answers": 15,
+    "excluded_answers": 0
+  }
+]

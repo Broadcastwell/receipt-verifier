@@ -1,0 +1,25 @@
+$ receipt-verifier crm|1|ChatGPT|1
+# node bin/verify.js (the command npx github:Broadcastwell/receipt-verifier runs), live public sources, 2026-10-15T21:42:52Z, Node v24.18.0
+
+Broadcastwell receipt verifier 1.0.0
+Checking an Index receipt: crm|1|ChatGPT|1
+
+PASS           record: found at bytes 946452 to 949860 of answers-2026-09.jsonl (read by byte range); its category, question, engine and run match the record id
+PASS           hash: SHA-256 of the published answer text is 2d40a97f6175ba3515a7abc083279f12c18931cb9937ea3b7c8b48a81d1dc782, as the receipt states
+PASS           excerpt: the excerpt appears in the published answer text once its markdown marks are removed and its spacing collapsed
+PASS           cited_pages: every cited page in the receipt (3) is among the pages the published answer cites (5)
+PASS           engine: ChatGPT, as the published record states
+PASS           question: equal to question 1 as the Index published it (the public API)
+PASS           run: run 1, the repeat_index of the published record
+PASS           captured_at: 2026-09-22T19:36:03.272Z, as the published record states
+PASS           doi: https://doi.org/10.5281/zenodo.22907695 redirects to https://zenodo.org/doi/10.5281/zenodo.22907695
+
+Verdict: VERIFIED
+Verification id: b1e0662c9115439d26a9e4c1e640a839233e44a8e63e1c13b2a5cc3ca52bbdd8
+Checked at: 2026-10-15T21:42:53.103Z
+Sources read:
+  https://app.broadcastwell.com/api/v1/index/categories/crm
+  https://zenodo.org/api/records/22907695/files/answers-2026-09.jsonl/content
+  https://doi.org/10.5281/zenodo.22907695
+
+# exit code 0

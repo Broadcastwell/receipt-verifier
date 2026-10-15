@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://broadcastwell.github.io/receipt-verifier/schema/report.schema.json",
+  "title": "Receipt verifier report",
+  "description": "What verify() returns and what the command line prints with the JSON option. verification_id is the SHA-256 (hex) of the canonical JSON (keys sorted, no whitespace) of { verifier, kind, receipt, checks: [{ id, status }], verdict, dataset }; checked_at, the reasons and the sources are not part of it.",
+  "type": "object",
+  "required": ["verifier", "kind", "subject", "receipt_source", "receipt", "checks", "verdict", "dataset", "verification_id", "checked_at", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "verifier": {
+      "type": "object",
+      "required": ["name", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "receipt-verifier" },
+        "version": { "type": "string", "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$" }
+      }
+    },
+    "kind": { "enum": ["index", "sample", "decision"] },
+    "subject": { "type": "string", "description": "What was checked, in words: a record id, an observation id, a share link or a Public Fix run." },
+    "receipt_source": {
+      "enum": ["given", "api", "dataset", "id", "export", "link", "page", "app"],
+      "description": "Where the receipt as checked came from: given as JSON, the public API, the dataset record itself, the id alone (nothing published), the sample export, the link, the share page, or the app's own verify answer."
+    },
+    "receipt": { "type": "object", "description": "The receipt as checked." },
+    "checks": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "prefixItems": [
+        { "$ref": "#/$defs/check", "properties": { "id": { "const": "record" } } },
+        { "$ref": "#/$defs/check", "properties": { "id": { "const": "hash" } } },
+        { "$ref": "#/$defs/check", "properties": { "id": { "const": "excerpt" } } },
+        { "$ref": "#/$defs/check", "properties": { "id": { "const": "cited_pages" } } },
+        { "$ref": "#/$defs/check", "properties": { "id": { "const": "engine" } } },
+        { "$ref": "#/$defs/check", "properties": { "id": { "const": "question" } } },
+        { "$ref": "#/$defs/check", "properties": { "id": { "const": "run" } } },
+        { "$ref": "#/$defs/check", "properties": { "id": { "const": "captured_at" } } },
+        { "$ref": "#/$defs/check", "properties": { "id": { "const": "doi" } } }
+      ],
+      "items": false
+    },
+    "verdict": {
+      "enum": ["VERIFIED", "FAILED", "INCOMPLETE"],
+      "description": "VERIFIED when record and hash pass and nothing fails; FAILED when any check fails; otherwise INCOMPLETE."
+    },
+    "dataset": { "type": "object", "description": "The identity of the source the receipt was checked against." },
+    "verification_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "checked_at": { "type": "string", "format": "date-time" },
+    "sources": { "type": "array", "items": { "type": "string", "format": "uri" }, "description": "Every address the check read, in order." }
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "required": ["id", "status", "reason"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "enum": ["record", "hash", "excerpt", "cited_pages", "engine", "question", "run", "captured_at", "doi"] },
+        "status": { "enum": ["PASS", "FAIL", "NOT CHECKABLE"] },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

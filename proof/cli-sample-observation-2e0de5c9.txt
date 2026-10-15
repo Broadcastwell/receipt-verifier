@@ -1,0 +1,23 @@
+$ receipt-verifier observation-2e0de5c9-6fc7-4dd2-91d8-aca4e44e8d0f
+# node bin/verify.js (the command npx github:Broadcastwell/receipt-verifier runs), live public sources, 2026-10-15T21:42:53Z, Node v24.18.0
+
+Broadcastwell receipt verifier 1.0.0
+Checking a sample receipt (fictional company): observation-2e0de5c9-6fc7-4dd2-91d8-aca4e44e8d0f
+
+PASS           record: observation observation-2e0de5c9-6fc7-4dd2-91d8-aca4e44e8d0f is in the sample export for Kalvenor Systems (SAMPLE DATA); the company is fictional
+PASS           hash: SHA-256 of the answer text in the receipt equals SHA-256 of answer_full in the sample export: 2f0a3a1f8db6835bffdb4ed2ddd3cb7177d73a3b9152f446d7de8b1a0dcb570c
+PASS           excerpt: the answer text quoted in the receipt matches answer_full in the sample export
+PASS           cited_pages: every cited page in the receipt (2) is among the pages the published answer cites (2)
+PASS           engine: chatgpt (ChatGPT), as the sample export states
+PASS           question: equal to question 1 as the sample export publishes it
+PASS           run: run kalvenor-monitor, pass 2026-05, as the sample export states
+PASS           captured_at: 2026-05-12T10:03:00.000Z, as the sample export states
+NOT CHECKABLE  doi: the sample is fictional and has no DOI
+
+Verdict: VERIFIED
+Verification id: 275ef19e60a46299b88c28c790a3085e51cba0607990488e1c7c986efde22162
+Checked at: 2026-10-15T21:42:53.593Z
+Sources read:
+  https://app.broadcastwell.com/api/export/kalvenor-monitor.json
+
+# exit code 0

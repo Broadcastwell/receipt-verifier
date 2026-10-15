@@ -1,0 +1,15 @@
+{
+  "receipt_id": "observation-2e0de5c9-6fc7-4dd2-91d8-aca4e44e8d0f",
+  "run_id": "kalvenor-monitor",
+  "pass_id": "2026-05",
+  "question_id": 1,
+  "question_text": "What is field service management software?",
+  "engine": "chatgpt",
+  "engine_label": "ChatGPT",
+  "cited_urls": [
+    "https://fieldservicereview.example/core/1",
+    "https://veranofsm.example/core/1"
+  ],
+  "answer_text": "Buyers asking \"What is field service management software?\" are most often pointed to Northvale FSM, Orbit Field. Kalvenor Systems is named in this answer as an option for teams that need offline mobile work. The answer advises checking offline behaviour, contract length and data export before signing.",
+  "observed_at": "2026-05-12T10:03:00.000Z"
+}

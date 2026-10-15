@@ -1,0 +1,146 @@
+{
+  "title": "The Absence Index: September 2026 Release",
+  "release_id": "2026-09",
+  "publication_date": "2026-09-23",
+  "doi": "10.5281/zenodo.22907695",
+  "doi_url": "https://doi.org/10.5281/zenodo.22907695",
+  "record_url": "https://zenodo.org/records/22907695",
+  "record_api": "https://zenodo.org/api/records/22907695",
+  "license": "CC BY 4.0",
+  "sums_file": "SHA256SUMS.txt",
+  "files": [
+    {
+      "name": "answers-2026-09.jsonl",
+      "size": 9028293,
+      "sha256": "221c94e1ebad2bc87d7cd20837fa670cc40b10dba6f68b75423dc8bee69697b3",
+      "md5": "477cbd403833b6cd228c6f928fb0a670",
+      "url": "https://zenodo.org/api/records/22907695/files/answers-2026-09.jsonl/content"
+    },
+    {
+      "name": "construction-project-management-2026-09.csv",
+      "size": 19369,
+      "sha256": "de2f0a7d5d39e1d593e27d1c537150db7aa6872923334f0a9b3ba627cb6bedd4",
+      "md5": "11b0a5cf64deb5f99f0bb39790b8c637",
+      "url": "https://zenodo.org/api/records/22907695/files/construction-project-management-2026-09.csv/content"
+    },
+    {
+      "name": "control-questions.json",
+      "size": 1767,
+      "sha256": "0c7ae041a984452b10ff9074deb7f502aa2c2b72f5a28fea581fae408be816cb",
+      "md5": "4c26fdc8904915a7e554d4f3c05e1ff2",
+      "url": "https://zenodo.org/api/records/22907695/files/control-questions.json/content"
+    },
+    {
+      "name": "crm-2026-09.csv",
+      "size": 9215,
+      "sha256": "56448ef384c7cbfaf05784cacf38d64815bf40a4923247aa4b5c49cecce5da8a",
+      "md5": "5ddfee160ffa0fec64615c08e766ddf2",
+      "url": "https://zenodo.org/api/records/22907695/files/crm-2026-09.csv/content"
+    },
+    {
+      "name": "dealership-management-systems-2026-09.csv",
+      "size": 19350,
+      "sha256": "c6917b162abeaee9bb9c5f7e5f76ae7587e715cf92608b57f25439d8ecf3c4be",
+      "md5": "60eec18de57355c484e4c2b144f297af",
+      "url": "https://zenodo.org/api/records/22907695/files/dealership-management-systems-2026-09.csv/content"
+    },
+    {
+      "name": "dental-practice-management-2026-09.csv",
+      "size": 17430,
+      "sha256": "018b72c25f5a601cb9ddd06d1ee9289517adc0aa258a50dc7c2630b9270e45d3",
+      "md5": "9c43df73ea176c311fc55c9a7430d029",
+      "url": "https://zenodo.org/api/records/22907695/files/dental-practice-management-2026-09.csv/content"
+    },
+    {
+      "name": "field-service-management-2026-09.csv",
+      "size": 19084,
+      "sha256": "1607cfa034021bc600e06387fccad408a0de9c6cfc59702e295c7417dc980cee",
+      "md5": "df0e5e8c1fff2cd5c306def80f2c1e04",
+      "url": "https://zenodo.org/api/records/22907695/files/field-service-management-2026-09.csv/content"
+    },
+    {
+      "name": "hotel-property-management-2026-09.csv",
+      "size": 21800,
+      "sha256": "471a6dd42fd0020cd53bacef5e662d0c96f6862362afa5499dfdb8e307f9a4f9",
+      "md5": "89aad0c6e5cc05d5072082b541424da3",
+      "url": "https://zenodo.org/api/records/22907695/files/hotel-property-management-2026-09.csv/content"
+    },
+    {
+      "name": "insurance-agency-management-2026-09.csv",
+      "size": 16783,
+      "sha256": "3e2339b0386a1eec1428a30116b58f47382f228ba1ebc36f7a9523c17f2c31cb",
+      "md5": "5f000c6f4964f654b467bc56e7a1e2f8",
+      "url": "https://zenodo.org/api/records/22907695/files/insurance-agency-management-2026-09.csv/content"
+    },
+    {
+      "name": "legal-practice-management-2026-09.csv",
+      "size": 18240,
+      "sha256": "93a4e4a8edcda28f91fe305597dd1dd8641080cda7228112cc32ed0586df5f74",
+      "md5": "cdf46bdf1f111189bb1c24e97106a31b",
+      "url": "https://zenodo.org/api/records/22907695/files/legal-practice-management-2026-09.csv/content"
+    },
+    {
+      "name": "loan-origination-software-2026-09.csv",
+      "size": 21733,
+      "sha256": "004464ebd868bb5acc3163f2a9cc8b62392189d8b1cc095236af0cdd827e316b",
+      "md5": "1c134a222ecaf82e49b14f3a3ece1d8a",
+      "url": "https://zenodo.org/api/records/22907695/files/loan-origination-software-2026-09.csv/content"
+    },
+    {
+      "name": "project-management-2026-09.csv",
+      "size": 9122,
+      "sha256": "7f9fa3ffcc96a4145c527875ddaeae3b66098ff42ea6de7a47d930a96088a2f7",
+      "md5": "5efdfbeae1b256ca31f6a14ec385c4be",
+      "url": "https://zenodo.org/api/records/22907695/files/project-management-2026-09.csv/content"
+    },
+    {
+      "name": "radiology-medical-imaging-2026-09.csv",
+      "size": 21078,
+      "sha256": "354414cf494d65071c99584c79f3d14ce5124c93c97389dfaa5cc9a41042e5c7",
+      "md5": "de23a2f7981cfdd1cd20d83db0b49e65",
+      "url": "https://zenodo.org/api/records/22907695/files/radiology-medical-imaging-2026-09.csv/content"
+    },
+    {
+      "name": "README.md",
+      "size": 4420,
+      "sha256": "9ac95c9e1874ea3c18563148c7e8c40f4e3d582dc2f14379ae8a72289b8390ef",
+      "md5": "daf4f15617a4b220a2674ab21826e3cc",
+      "url": "https://zenodo.org/api/records/22907695/files/README.md/content"
+    },
+    {
+      "name": "release-2026-09.json",
+      "size": 1139416,
+      "sha256": "e7829183f6785357787fcf85d3c27999403b0a329f349dad4c7343b11d23f142",
+      "md5": "c84b046cd4a61f3e222249eb8d2d16ce",
+      "url": "https://zenodo.org/api/records/22907695/files/release-2026-09.json/content"
+    },
+    {
+      "name": "residential-property-management-2026-09.csv",
+      "size": 19165,
+      "sha256": "c7009cdde776bb3ca2cdb382c801e8a798155efc00ba8cda04d2b66b09a4e25c",
+      "md5": "518c11439ac90e9f3c1023662942a3ac",
+      "url": "https://zenodo.org/api/records/22907695/files/residential-property-management-2026-09.csv/content"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 1798,
+      "sha256": null,
+      "md5": "3f72643a38fa0e653e253f356656f111",
+      "url": "https://zenodo.org/api/records/22907695/files/SHA256SUMS.txt/content"
+    },
+    {
+      "name": "transportation-management-systems-2026-09.csv",
+      "size": 21746,
+      "sha256": "17111e11b2ee2f04018af578e58693926d5cc069c9736e46c74c36ea06ad9592",
+      "md5": "3f5c28b75cb28a9f739361d5256aaca4",
+      "url": "https://zenodo.org/api/records/22907695/files/transportation-management-systems-2026-09.csv/content"
+    },
+    {
+      "name": "veterinary-practice-management-2026-09.csv",
+      "size": 16590,
+      "sha256": "22ea0bdaa1c1890b491ae92e5c6d37e649195d8319e0bde3af4ae52f5571e015",
+      "md5": "53a23d1bfc6073be260ae51991558dae",
+      "url": "https://zenodo.org/api/records/22907695/files/veterinary-practice-management-2026-09.csv/content"
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+# Live run of the test suite against the public sources
+# Command: RV_LIVE=1 npm test (with NODE_OPTIONS=--test-reporter=tap, so the record is plain ASCII)
+# Date: 2026-10-15T21:42:23Z  Node: v24.18.0  Platform: win32 x64
+
+
+> receipt-verifier@1.0.0 test
+> node --test test/*.test.js
+
+TAP version 13
+# Subtest: arguments
+ok 1 - arguments
+  ---
+  duration_ms: 2.8936
+  type: 'test'
+  ...
+# Subtest: one line per check, then the verdict and the verification id
+ok 2 - one line per check, then the verdict and the verification id
+  ---
+  duration_ms: 70.965
+  type: 'test'
+  ...
+# Subtest: no receipt field can forge or hide a line of the output
+ok 3 - no receipt field can forge or hide a line of the output
+  ---
+  duration_ms: 11.4233
+  type: 'test'
+  ...
+# Subtest: exit codes: 0 VERIFIED, 1 FAILED, 2 INCOMPLETE
+ok 4 - exit codes: 0 VERIFIED, 1 FAILED, 2 INCOMPLETE
+  ---
+  duration_ms: 18.8859
+  type: 'test'
+  ...
+# Subtest: input errors exit 2 without reading the network
+ok 5 - input errors exit 2 without reading the network
+  ---
+  duration_ms: 767.7571
+  type: 'test'
+  ...
+# Subtest: the full check downloads the answers file once, checks it against SHA256SUMS.txt and reuses it
+ok 6 - the full check downloads the answers file once, checks it against SHA256SUMS.txt and reuses it
+  ---
+  duration_ms: 17.5317
+  type: 'test'
+  ...
+# Subtest: the Public Fix Decision Receipt is VERIFIED, with excerpt and cited pages NOT CHECKABLE
+ok 7 - the Public Fix Decision Receipt is VERIFIED, with excerpt and cited pages NOT CHECKABLE
+  ---
+  duration_ms: 63.6379
+  type: 'test'
+  ...
+# Subtest: every link form of the same Decision Receipt gives one verification id
+ok 8 - every link form of the same Decision Receipt gives one verification id
+  ---
+  duration_ms: 15.6411
+  type: 'test'
+  ...
+# Subtest: the Decision Receipt JSON is VERIFIED and its run is compared
+ok 9 - the Decision Receipt JSON is VERIFIED and its run is compared
+  ---
+  duration_ms: 2.5243
+  type: 'test'
+  ...
+# Subtest: the wrong-hash Decision Receipt is FAILED on hash
+ok 10 - the wrong-hash Decision Receipt is FAILED on hash
+  ---
+  duration_ms: 2.9673
+  type: 'test'
+  ...
+# Subtest: when the share page cannot be read, the hash the app reports is used
+ok 11 - when the share page cannot be read, the hash the app reports is used
+  ---
+  duration_ms: 3.4091
+  type: 'test'
+  ...
+# Subtest: a network failure gives NOT CHECKABLE, never FAIL
+ok 12 - a network failure gives NOT CHECKABLE, never FAIL
+  ---
+  duration_ms: 2.335
+  type: 'test'
+  ...
+# Subtest: an unknown Public Fix run or share link is FAILED on record
+ok 13 - an unknown Public Fix run or share link is FAILED on record
+  ---
+  duration_ms: 2.9579
+  type: 'test'
+  ...
+# Subtest: a receipt that names another hash algorithm fails on hash
+ok 14 - a receipt that names another hash algorithm fails on hash
+  ---
+  duration_ms: 1.624
+  type: 'test'
+  ...
+# Subtest: a hash that is not hex fails without asking the app to compare it
+ok 15 - a hash that is not hex fails without asking the app to compare it
+  ---
+  duration_ms: 1.548
+  type: 'test'
+  ...
+# Subtest: the real Index receipt, given by its record id, is VERIFIED
+ok 16 - the real Index receipt, given by its record id, is VERIFIED
+  ---
+  duration_ms: 60.0765
+  type: 'test'
+  ...
+# Subtest: the receipt JSON as given is VERIFIED with the same verification id as its record id
+ok 17 - the receipt JSON as given is VERIFIED with the same verification id as its record id
+  ---
+  duration_ms: 14.8591
+  type: 'test'
+  ...
+# Subtest: the same input gives the same verification id twice
+ok 18 - the same input gives the same verification id twice
+  ---
+  duration_ms: 23.197
+  type: 'test'
+  ...
+# Subtest: the tampered hash receipt is FAILED on hash
+ok 19 - the tampered hash receipt is FAILED on hash
+  ---
+  duration_ms: 4.8839
+  type: 'test'
+  ...
+# Subtest: the tampered excerpt receipt is FAILED on excerpt
+ok 20 - the tampered excerpt receipt is FAILED on excerpt
+  ---
+  duration_ms: 3.8512
+  type: 'test'
+  ...
+# Subtest: a changed engine, run, capture time, question or cited page each fails its own check
+ok 21 - a changed engine, run, capture time, question or cited page each fails its own check
+  ---
+  duration_ms: 16.5907
+  type: 'test'
+  ...
+# Subtest: a question_id that disagrees with the record fails even when the receipt quotes no question
+ok 22 - a question_id that disagrees with the record fails even when the receipt quotes no question
+  ---
+  duration_ms: 3.625
+  type: 'test'
+  ...
+# Subtest: a Zenodo record without a DOI field is NOT CHECKABLE on doi, not FAIL
+ok 23 - a Zenodo record without a DOI field is NOT CHECKABLE on doi, not FAIL
+  ---
+  duration_ms: 3.2695
+  type: 'test'
+  ...
+# Subtest: a hash that is not hex fails, and a receipt without a hash is not checkable on hash
+ok 24 - a hash that is not hex fails, and a receipt without a hash is not checkable on hash
+  ---
+  duration_ms: 5.6686
+  type: 'test'
+  ...
+# Subtest: a network failure gives NOT CHECKABLE, never FAIL
+ok 25 - a network failure gives NOT CHECKABLE, never FAIL
+  ---
+  duration_ms: 2.4223
+  type: 'test'
+  ...
+# Subtest: a fetch that never answers times out as NOT CHECKABLE
+ok 26 - a fetch that never answers times out as NOT CHECKABLE
+  ---
+  duration_ms: 76.4917
+  type: 'test'
+  ...
+# Subtest: Zenodo out of reach leaves the record NOT CHECKABLE while the API checks still run
+ok 27 - Zenodo out of reach leaves the record NOT CHECKABLE while the API checks still run
+  ---
+  duration_ms: 2.3845
+  type: 'test'
+  ...
+# Subtest: the DOI check reads the Zenodo record when the redirect cannot be read
+ok 28 - the DOI check reads the Zenodo record when the redirect cannot be read
+  ---
+  duration_ms: 7.3175
+  type: 'test'
+  ...
+# Subtest: a record id the dataset does not hold is FAILED on record
+ok 29 - a record id the dataset does not hold is FAILED on record
+  ---
+  duration_ms: 3.0003
+  type: 'test'
+  ...
+# Subtest: a record the API serves no receipt for is checked as the dataset record itself
+ok 30 - a record the API serves no receipt for is checked as the dataset record itself
+  ---
+  duration_ms: 3.1555
+  type: 'test'
+  ...
+# Subtest: the question text falls back to the release file when the API cannot be read
+ok 31 - the question text falls back to the release file when the API cannot be read
+  ---
+  duration_ms: 2.8865
+  type: 'test'
+  ...
+# Subtest: bytes at the located range that hold another record are not trusted
+ok 32 - bytes at the located range that hold another record are not trusted
+  ---
+  duration_ms: 2.3431
+  type: 'test'
+  ...
+# Subtest: the full check reads the whole file, checks its SHA-256 and finds the record
+ok 33 - the full check reads the whole file, checks its SHA-256 and finds the record
+  ---
+  duration_ms: 6.2591
+  type: 'test'
+  ...
+# Subtest: the full check does not trust a file whose SHA-256 differs from SHA256SUMS.txt
+ok 34 - the full check does not trust a file whose SHA-256 differs from SHA256SUMS.txt
+  ---
+  duration_ms: 3.0774
+  type: 'test'
+  ...
+# Subtest: fetch is never called as a method of another object, as browsers and Workers require
+ok 35 - fetch is never called as a method of another object, as browsers and Workers require
+  ---
+  duration_ms: 4.558
+  type: 'test'
+  ...
+# Subtest: options are checked
+ok 36 - options are checked
+  ---
+  duration_ms: 0.6582
+  type: 'test'
+  ...
+# Subtest: live: the Index receipt crm|1|ChatGPT|1 is VERIFIED and matches its fixture
+ok 37 - live: the Index receipt crm|1|ChatGPT|1 is VERIFIED and matches its fixture
+  ---
+  duration_ms: 1489.9313
+  type: 'test'
+  ...
+# Subtest: live: the answers line at the located range is the fixture line, byte for byte
+ok 38 - live: the answers line at the located range is the fixture line, byte for byte
+  ---
+  duration_ms: 219.5674
+  type: 'test'
+  ...
+# Subtest: live: an Index record from another category is VERIFIED
+ok 39 - live: an Index record from another category is VERIFIED
+  ---
+  duration_ms: 928.5616
+  type: 'test'
+  ...
+# Subtest: live: a record the API serves no receipt for is checked as the dataset record itself
+ok 40 - live: a record the API serves no receipt for is checked as the dataset record itself
+  ---
+  duration_ms: 797.277
+  type: 'test'
+  ...
+# Subtest: live: the sample receipt is VERIFIED with the DOI NOT CHECKABLE
+ok 41 - live: the sample receipt is VERIFIED with the DOI NOT CHECKABLE
+  ---
+  duration_ms: 165.084
+  type: 'test'
+  ...
+# Subtest: live: the Public Fix Decision Receipt is VERIFIED with excerpt and cited pages NOT CHECKABLE
+ok 42 - live: the Public Fix Decision Receipt is VERIFIED with excerpt and cited pages NOT CHECKABLE
+  ---
+  duration_ms: 1356.8013
+  type: 'test'
+  ...
+# Subtest: live: the tampered receipts are FAILED
+ok 43 - live: the tampered receipts are FAILED
+  ---
+  duration_ms: 1301.7856
+  type: 'test'
+  ...
+# Subtest: live: the full check reads the whole answers file and VERIFIES the receipt
+ok 44 - live: the full check reads the whole answers file and VERIFIES the receipt
+  ---
+  duration_ms: 12487.723
+  type: 'test'
+  ...
+# Subtest: the offsets locator round-trips against the fixture line
+ok 45 - the offsets locator round-trips against the fixture line
+  ---
+  duration_ms: 3.9702
+  type: 'test'
+  ...
+# Subtest: the locator covers the whole pinned answers file, line after line
+ok 46 - the locator covers the whole pinned answers file, line after line
+  ---
+  duration_ms: 2.4299
+  type: 'test'
+  ...
+# Subtest: locate() answers null for a record the file does not hold
+ok 47 - locate() answers null for a record the file does not hold
+  ---
+  duration_ms: 1.7253
+  type: 'test'
+  ...
+# Subtest: the release meta names the dataset and agrees with the locator and SHA256SUMS.txt
+ok 48 - the release meta names the dataset and agrees with the locator and SHA256SUMS.txt
+  ---
+  duration_ms: 1.2833
+  type: 'test'
+  ...
+# Subtest: record ids
+ok 49 - record ids
+  ---
+  duration_ms: 6.2511
+  type: 'test'
+  ...
+# Subtest: receipt URLs for the Index
+ok 50 - receipt URLs for the Index
+  ---
+  duration_ms: 1.4075
+  type: 'test'
+  ...
+# Subtest: Decision Receipt and Public Fix links
+ok 51 - Decision Receipt and Public Fix links
+  ---
+  duration_ms: 0.7195
+  type: 'test'
+  ...
+# Subtest: sample ids and links
+ok 52 - sample ids and links
+  ---
+  duration_ms: 0.5371
+  type: 'test'
+  ...
+# Subtest: this page, given another receipt link
+ok 53 - this page, given another receipt link
+  ---
+  duration_ms: 0.4368
+  type: 'test'
+  ...
+# Subtest: receipt JSON in all three shapes, as objects and as text
+ok 54 - receipt JSON in all three shapes, as objects and as text
+  ---
+  duration_ms: 8.0271
+  type: 'test'
+  ...
+# Subtest: input errors are InputError with a plain message
+ok 55 - input errors are InputError with a plain message
+  ---
+  duration_ms: 3.4828
+  type: 'test'
+  ...
+# Subtest: plain() keeps link text and drops markdown marks
+ok 56 - plain() keeps link text and drops markdown marks
+  ---
+  duration_ms: 2.5409
+  type: 'test'
+  ...
+# Subtest: excerptCore() removes only the cut marks
+ok 57 - excerptCore() removes only the cut marks
+  ---
+  duration_ms: 0.4428
+  type: 'test'
+  ...
+# Subtest: the published excerpt is a substring of plain() of the published answer
+ok 58 - the published excerpt is a substring of plain() of the published answer
+  ---
+  duration_ms: 1.8206
+  type: 'test'
+  ...
+# Subtest: canonical JSON sorts keys at every depth and has no whitespace
+ok 59 - canonical JSON sorts keys at every depth and has no whitespace
+  ---
+  duration_ms: 1.6292
+  type: 'test'
+  ...
+# Subtest: SHA-256 of a known value
+ok 60 - SHA-256 of a known value
+  ---
+  duration_ms: 12.9701
+  type: 'test'
+  ...
+# Subtest: the verdict rule
+ok 61 - the verdict rule
+  ---
+  duration_ms: 0.6652
+  type: 'test'
+  ...
+# Subtest: the verification id leaves out the time and the reasons, and keeps everything else
+ok 62 - the verification id leaves out the time and the reasons, and keeps everything else
+  ---
+  duration_ms: 5.1182
+  type: 'test'
+  ...
+# Subtest: VERSION equals the package version
+ok 63 - VERSION equals the package version
+  ---
+  duration_ms: 0.8907
+  type: 'test'
+  ...
+# Subtest: a report lists the sources it read and the dataset it checked against
+ok 64 - a report lists the sources it read and the dataset it checked against
+  ---
+  duration_ms: 51.8816
+  type: 'test'
+  ...
+# Subtest: src/ is ASCII, has no two-hyphen sequence and none of the banned words
+ok 65 - src/ is ASCII, has no two-hyphen sequence and none of the banned words
+  ---
+  duration_ms: 12.1149
+  type: 'test'
+  ...
+# Subtest: src/ uses only what Node 20, browsers and Workers all have
+ok 66 - src/ uses only what Node 20, browsers and Workers all have
+  ---
+  duration_ms: 2.142
+  type: 'test'
+  ...
+# Subtest: every file except the quoted fixtures is ASCII with no control bytes but tab and newline
+ok 67 - every file except the quoted fixtures is ASCII with no control bytes but tab and newline
+  ---
+  duration_ms: 11.2967
+  type: 'test'
+  ...
+# Subtest: nothing in the tree looks like a secret
+ok 68 - nothing in the tree looks like a secret
+  ---
+  duration_ms: 12.2319
+  type: 'test'
+  ...
+# Subtest: no engine code, internal names, account routes or client data outside the fixtures
+ok 69 - no engine code, internal names, account routes or client data outside the fixtures
+  ---
+  duration_ms: 8.7894
+  type: 'test'
+  ...
+# Subtest: the copy keeps its rules: no dashes, no double hyphens in prose, no Gemini, no prices, no promises
+ok 70 - the copy keeps its rules: no dashes, no double hyphens in prose, no Gemini, no prices, no promises
+  ---
+  duration_ms: 2.178
+  type: 'test'
+  ...
+# Subtest: the package has no dependencies
+ok 71 - the package has no dependencies
+  ---
+  duration_ms: 1.5402
+  type: 'test'
+  ...
+# Subtest: the sample receipt is VERIFIED, with the DOI NOT CHECKABLE because the sample is fictional
+ok 72 - the sample receipt is VERIFIED, with the DOI NOT CHECKABLE because the sample is fictional
+  ---
+  duration_ms: 58.0507
+  type: 'test'
+  ...
+# Subtest: the sample id forms and the receipt JSON give one verification id
+ok 73 - the sample id forms and the receipt JSON give one verification id
+  ---
+  duration_ms: 17.9175
+  type: 'test'
+  ...
+# Subtest: an observation copied from the export is accepted as a sample receipt
+ok 74 - an observation copied from the export is accepted as a sample receipt
+  ---
+  duration_ms: 9.3113
+  type: 'test'
+  ...
+# Subtest: a changed answer text fails the hash and the excerpt
+ok 75 - a changed answer text fails the hash and the excerpt
+  ---
+  duration_ms: 4.4235
+  type: 'test'
+  ...
+# Subtest: a stated answer hash is compared with the published answer
+ok 76 - a stated answer hash is compared with the published answer
+  ---
+  duration_ms: 8.0945
+  type: 'test'
+  ...
+# Subtest: changed fields fail their own checks
+ok 77 - changed fields fail their own checks
+  ---
+  duration_ms: 19.7046
+  type: 'test'
+  ...
+# Subtest: a question id that disagrees fails even without the question text
+ok 78 - a question id that disagrees fails even without the question text
+  ---
+  duration_ms: 6.5376
+  type: 'test'
+  ...
+# Subtest: an observation id the export does not hold is FAILED on record
+ok 79 - an observation id the export does not hold is FAILED on record
+  ---
+  duration_ms: 5.3793
+  type: 'test'
+  ...
+# Subtest: an unreachable export gives NOT CHECKABLE, never FAIL
+ok 80 - an unreachable export gives NOT CHECKABLE, never FAIL
+  ---
+  duration_ms: 0.9244
+  type: 'test'
+  ...
+# Subtest: both schemas declare JSON Schema 2020-12
+ok 81 - both schemas declare JSON Schema 2020-12
+  ---
+  duration_ms: 1.6504
+  type: 'test'
+  ...
+# Subtest: the real receipts of all three kinds fit the receipt schema, each in exactly one branch
+ok 82 - the real receipts of all three kinds fit the receipt schema, each in exactly one branch
+  ---
+  duration_ms: 5.2026
+  type: 'test'
+  ...
+# Subtest: things that are not receipts do not fit the receipt schema
+ok 83 - things that are not receipts do not fit the receipt schema
+  ---
+  duration_ms: 1.1158
+  type: 'test'
+  ...
+# Subtest: reports of every kind and verdict fit the report schema
+ok 84 - reports of every kind and verdict fit the report schema
+  ---
+  duration_ms: 74.0689
+  type: 'test'
+  ...
+# Subtest: the page starts from ?record= or ?receipt=
+ok 85 - the page starts from ?record= or ?receipt=
+  ---
+  duration_ms: 1.5129
+  type: 'test'
+  ...
+# Subtest: a checked input becomes a shareable address, but JSON never goes in the URL
+ok 86 - a checked input becomes a shareable address, but JSON never goes in the URL
+  ---
+  duration_ms: 0.5113
+  type: 'test'
+  ...
+# Subtest: the page has one h1, labelled input, one filled button and no outside scripts or fonts
+ok 87 - the page has one h1, labelled input, one filled button and no outside scripts or fonts
+  ---
+  duration_ms: 0.8344
+  type: 'test'
+  ...
+1..87
+# tests 87
+# suites 0
+# pass 87
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18910.6474

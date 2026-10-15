@@ -1,0 +1,75 @@
+{
+  "note": "Public data fetched by scripts/fetch-fixtures.mjs. The test fetch serves each URL (and byte range) from its file.",
+  "fetched_at": "2026-10-15T21:09:35.999Z",
+  "record_id": "crm|1|ChatGPT|1",
+  "observation_id": "observation-2e0de5c9-6fc7-4dd2-91d8-aca4e44e8d0f",
+  "public_fix": "broadcastwell",
+  "entries": [
+    {
+      "url": "https://app.broadcastwell.com/api/v1/index/categories/crm",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "file": "index-category-crm.json"
+    },
+    {
+      "url": "https://zenodo.org/api/records/22907695/files/answers-2026-09.jsonl/content",
+      "range": "bytes=946452-949860",
+      "status": 206,
+      "content_type": "application/octet-stream, application/octet-stream",
+      "file": "answers-crm-1-ChatGPT-1.jsonl"
+    },
+    {
+      "url": "https://zenodo.org/api/records/22907695",
+      "status": 200,
+      "content_type": "application/json",
+      "file": "zenodo-record-22907695.json"
+    },
+    {
+      "url": "https://zenodo.org/api/records/22907695/files/SHA256SUMS.txt/content",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8, text/plain; charset=utf-8",
+      "file": "zenodo-SHA256SUMS.txt"
+    },
+    {
+      "url": "https://doi.org/10.5281/zenodo.22907695",
+      "status": 302,
+      "location": "https://zenodo.org/doi/10.5281/zenodo.22907695"
+    },
+    {
+      "url": "https://app.broadcastwell.com/api/export/kalvenor-monitor.json",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "file": "sample-export-kalvenor-monitor.json"
+    },
+    {
+      "url": "https://app.broadcastwell.com/api/v1/public-fix/broadcastwell",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "file": "public-fix-broadcastwell.json"
+    },
+    {
+      "url": "https://app.broadcastwell.com/s/b23fe6796b7ca46de946a75e758de540092c9941247f05314d57d44d5aea3612",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "file": "decision-share-page.html"
+    },
+    {
+      "url": "https://app.broadcastwell.com/s/b23fe6796b7ca46de946a75e758de540092c9941247f05314d57d44d5aea3612?verify=",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "file": "decision-verify-empty.json"
+    },
+    {
+      "url": "https://app.broadcastwell.com/s/b23fe6796b7ca46de946a75e758de540092c9941247f05314d57d44d5aea3612?verify=b8323d7db281e60928624288b2a6f0c3b52d4742174fb4ad52302d1aedb0beb5",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "file": "decision-verify-match.json"
+    },
+    {
+      "url": "https://app.broadcastwell.com/s/b23fe6796b7ca46de946a75e758de540092c9941247f05314d57d44d5aea3612?verify=b8323d7db281e60928624288b2a6f0c3b52d4742174fb4ad52302d1aedb0beb6",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "file": "decision-verify-wrong.json"
+    }
+  ]
+}

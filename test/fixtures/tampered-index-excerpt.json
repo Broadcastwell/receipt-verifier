@@ -1,0 +1,14 @@
+{
+  "record_id": "crm|1|ChatGPT|1",
+  "engine": "ChatGPT",
+  "question": "What is the best CRM for a growing B2B sales team?",
+  "run": 1,
+  "captured_at": "2026-09-22T19:36:03.272Z",
+  "excerpt": "HubSpot Sales Hub would be my only shortlist leader for a growing B2B sales team —especially if you want sales, marketing, and customer service on a shared platform. That’s a recommendation based on its product scope, not a universal ...",
+  "cited_urls": [
+    "https://www.hubspot.com/products/sales",
+    "https://www.salesforce.com/sales/pricing/?bc=OTH&region=united-states&utm_source=openai",
+    "https://www.pipedrive.com/en/pricing"
+  ],
+  "answer_sha256": "2d40a97f6175ba3515a7abc083279f12c18931cb9937ea3b7c8b48a81d1dc782"
+}

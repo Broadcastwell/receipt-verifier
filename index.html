@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Receipt verifier</title>
+<meta name="description" content="Check a Broadcastwell receipt against the published Absence Index dataset and the public sources, in your browser.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self' https://app.broadcastwell.com https://zenodo.org https://doi.org; img-src 'self' data:; base-uri 'none'; form-action 'self'">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="web/style.css">
+<script type="module" src="web/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the checker</a>
+<header class="masthead">
+  <div class="wrap">
+    <p class="brand">Broadcastwell</p>
+  </div>
+</header>
+<main id="main" class="wrap">
+  <h1>Check a Broadcastwell receipt</h1>
+  <p class="lead">Paste a record id, a receipt link or a receipt in JSON. This page reads the published dataset and the public sources straight from your browser and compares them with the receipt, field by field. You do not have to trust us: every check names the source it read.</p>
+
+  <form id="verify-form" class="panel" action="./" method="get" novalidate>
+    <label for="receipt-input">Record id, receipt link or receipt JSON</label>
+    <p id="receipt-hint" class="hint">For example <code>crm|1|ChatGPT|1</code>, a link that ends in <code>/public-fix/broadcastwell</code>, or a receipt you copied as JSON.</p>
+    <textarea id="receipt-input" name="receipt" rows="4" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="receipt-hint"></textarea>
+    <div class="actions">
+      <button type="submit" id="verify-button" class="primary">Verify</button>
+    </div>
+    <fieldset class="examples">
+      <legend>Or try one</legend>
+      <button type="button" class="secondary" data-example="crm|1|ChatGPT|1">An Index receipt</button>
+      <button type="button" class="secondary" data-example="observation-2e0de5c9-6fc7-4dd2-91d8-aca4e44e8d0f">The fictional sample</button>
+      <button type="button" class="secondary" data-example="https://app.broadcastwell.com/public-fix/broadcastwell">The Public Fix run</button>
+    </fieldset>
+  </form>
+
+  <p id="form-error" class="error" role="alert" hidden></p>
+
+  <section id="result" class="result" aria-live="polite" aria-labelledby="result-heading" hidden>
+    <h2 id="result-heading">Result</h2>
+    <div id="verdict" class="verdict"></div>
+    <dl id="facts" class="facts"></dl>
+    <ol id="checks" class="checks"></ol>
+    <h3>Sources read</h3>
+    <ul id="sources" class="sources"></ul>
+    <details class="raw">
+      <summary>The report as JSON</summary>
+      <pre id="raw-json"></pre>
+    </details>
+  </section>
+
+  <section class="notes" aria-labelledby="notes-heading">
+    <h2 id="notes-heading">What the checks mean</h2>
+    <p>A receipt is <strong>VERIFIED</strong> when the record exists at its public source, the SHA-256 of the full answer text as published equals the receipt's hash, and no check fails. It is <strong>FAILED</strong> when any field disagrees with the source, and <strong>INCOMPLETE</strong> when a source could not be read. A check that cannot be made says so, with its reason, and never counts as a failure.</p>
+    <p>Some sources do not allow a browser on another site to read them: the fictional sample export and the Decision Receipt links. Here those checks show NOT CHECKABLE. The command line reads them:</p>
+    <pre class="command">npx github:Broadcastwell/receipt-verifier "crm|1|ChatGPT|1"</pre>
+    <p>The Absence Index measures answers from ChatGPT, Claude, Perplexity, Google AI Overviews and Google AI Mode. The dataset is published under CC BY 4.0 with DOI <a href="https://doi.org/10.5281/zenodo.22907695">10.5281/zenodo.22907695</a>.</p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <p>Open source under the MIT licence: <a href="https://github.com/Broadcastwell/receipt-verifier">github.com/Broadcastwell/receipt-verifier</a>. This page keeps nothing and sends no data of yours anywhere; it only reads the public sources each result lists. Questions: <a href="mailto:hello@broadcastwell.com">hello@broadcastwell.com</a>.</p>
+    <p id="version" class="version"></p>
+  </div>
+</footer>
+</body>
+</html>

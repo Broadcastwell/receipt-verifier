@@ -1,0 +1,25 @@
+$ receipt-verifier https://app.broadcastwell.com/public-fix/broadcastwell
+# node bin/verify.js (the command npx github:Broadcastwell/receipt-verifier runs), live public sources, 2026-10-15T21:42:53Z, Node v24.18.0
+
+Broadcastwell receipt verifier 1.0.0
+Checking a Decision Receipt: Public Fix broadcastwell, day 0
+
+PASS           record: the share link answers for run job:free_9269c35b8bcd440a8d56790ee53f965e with 150 stored receipts
+PASS           hash: the app recomputed SHA-256 over the 150 stored receipts of the run and it equals the published hash printed on the share page: b8323d7db281e60928624288b2a6f0c3b52d4742174fb4ad52302d1aedb0beb5
+NOT CHECKABLE  excerpt: the answer texts of a shared run are not public
+NOT CHECKABLE  cited_pages: the answer texts of a shared run are not public
+NOT CHECKABLE  engine: a Decision Receipt covers a whole run, not one engine
+NOT CHECKABLE  question: a Decision Receipt covers a whole run, not one question
+NOT CHECKABLE  run: the receipt names no run id to compare
+NOT CHECKABLE  captured_at: the share link publishes no capture time to compare
+NOT CHECKABLE  doi: a Decision Receipt is not part of the published dataset and has no DOI
+
+Verdict: VERIFIED
+Verification id: 63c9b098066712d4eab0b28b853492fa4d9b0a63a30eeb86f3359d79b56b72a4
+Checked at: 2026-10-15T21:42:55.390Z
+Sources read:
+  https://app.broadcastwell.com/api/v1/public-fix/broadcastwell
+  https://app.broadcastwell.com/s/b23fe6796b7ca46de946a75e758de540092c9941247f05314d57d44d5aea3612
+  https://app.broadcastwell.com/s/b23fe6796b7ca46de946a75e758de540092c9941247f05314d57d44d5aea3612?verify=b8323d7db281e60928624288b2a6f0c3b52d4742174fb4ad52302d1aedb0beb5
+
+# exit code 0

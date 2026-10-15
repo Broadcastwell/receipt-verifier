@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://broadcastwell.github.io/receipt-verifier/schema/receipt.schema.json",
+  "title": "Broadcastwell receipt",
+  "description": "One of the three receipt kinds the verifier checks: an Index receipt from the Absence Index, a sample receipt from the fictional Kalvenor Systems sample, or a Decision Receipt for a shared run.",
+  "oneOf": [
+    { "$ref": "#/$defs/index" },
+    { "$ref": "#/$defs/sample" },
+    { "$ref": "#/$defs/decision" }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "SHA-256, lowercase hex."
+    },
+    "index": {
+      "title": "Index receipt (Absence Index, release 2026-09)",
+      "description": "One published answer. Checked against one line of answers-2026-09.jsonl in the Zenodo record under DOI 10.5281/zenodo.22907695.",
+      "type": "object",
+      "required": ["record_id", "engine", "question", "run", "captured_at", "excerpt", "cited_urls", "answer_sha256"],
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "description": "<category id>|<question id>|<engine>|<run>",
+          "pattern": "^[a-z0-9][a-z0-9_-]*[|][A-Za-z0-9][A-Za-z0-9_-]*[|](ChatGPT|Claude|Perplexity|Google AI Overviews|Google AI Mode)[|][1-9][0-9]*$"
+        },
+        "engine": { "enum": ["ChatGPT", "Claude", "Perplexity", "Google AI Overviews", "Google AI Mode"] },
+        "question_id": { "type": "string", "minLength": 1 },
+        "question": { "type": "string", "minLength": 1, "description": "The question text as the Index published it." },
+        "run": { "type": "integer", "minimum": 1, "maximum": 3, "description": "The repeat, 1 to 3." },
+        "captured_at": { "type": "string", "format": "date-time", "description": "ISO 8601 UTC capture time, compared exactly." },
+        "excerpt": {
+          "type": "string",
+          "minLength": 1,
+          "description": "About 240 characters of the answer around the first mention, with markdown marks removed and spacing collapsed; '... ' before and ' ...' after when cut. Quoted evidence: the engine wrote it."
+        },
+        "cited_urls": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "type": "string", "format": "uri" },
+          "description": "Up to three of the pages the answer cited, in the answer's order."
+        },
+        "answer_sha256": { "$ref": "#/$defs/sha256", "description": "SHA-256 of the full answer text, UTF-8, exactly as published." }
+      }
+    },
+    "sample": {
+      "title": "Sample receipt (the fictional Kalvenor Systems sample)",
+      "description": "One illustrative answer from the keyless sample export. Kalvenor Systems is a fictional company; the sample has no DOI.",
+      "type": "object",
+      "required": ["receipt_id", "run_id", "pass_id", "question_id", "question_text", "engine", "cited_urls", "answer_text", "observed_at"],
+      "properties": {
+        "receipt_id": { "type": "string", "pattern": "^observation-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "pass_id": { "type": "string", "minLength": 1 },
+        "question_id": { "type": "integer", "minimum": 1 },
+        "question_text": { "type": "string", "minLength": 1 },
+        "engine": { "enum": ["chatgpt", "claude", "perplexity", "google_aio", "google_ai_mode"] },
+        "engine_label": { "enum": ["ChatGPT", "Claude", "Perplexity", "Google AI Overviews", "Google AI Mode"] },
+        "verdict": { "type": "string" },
+        "cited_urls": { "type": "array", "items": { "type": "string", "format": "uri" } },
+        "answer_text": { "type": "string", "description": "The full answer text; its SHA-256 is the receipt hash." },
+        "answer_sha256": { "$ref": "#/$defs/sha256" },
+        "observed_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "decision": {
+      "title": "Decision Receipt (a shared run)",
+      "description": "A run-level receipt: SHA-256 over all the run's stored receipts in a fixed order and field order, published on a read-only share link that verifies itself with ?verify=<hash>. The answer texts are not public.",
+      "type": "object",
+      "required": ["receipts_url", "hash"],
+      "properties": {
+        "receipts_url": { "type": "string", "pattern": "^https://app[.]broadcastwell[.]com/s/[0-9a-f]{64}$" },
+        "hash": { "$ref": "#/$defs/sha256" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "receipts": { "type": "integer", "minimum": 0 },
+        "algorithm": { "const": "SHA-256" }
+      }
+    }
+  }
+}
