@@ -22,18 +22,22 @@ const VERDICT_TEXT = {
   INCOMPLETE: 'Nothing failed, but the record or its hash could not be checked from here.'
 };
 
-// The input the page was opened with: ?record=<record id> or ?receipt=<receipt URL>.
-export function initialInput(search) {
+// The input the page was opened with: ?record=<record id> or #receipt=<receipt URL>. A receipt link
+// rides in the fragment, which a browser never sends to any server, so a share link's token stays in
+// the browser; ?receipt= still works.
+export function initialInput(search, hash) {
+  const fragment = new URLSearchParams(String(hash || '').replace(/^#/, ''));
   const params = new URLSearchParams(search || '');
-  return (params.get('record') || params.get('receipt') || '').trim();
+  return (fragment.get('receipt') || params.get('record') || params.get('receipt') || '').trim();
 }
 
-// The address to show for a checked input, so the result can be shared. JSON is never put in the URL.
+// The address to show for a checked input, so the result can be shared. JSON is never put in the URL,
+// and a receipt link goes in the fragment.
 export function shareableSearch(input) {
   const text = String(input || '').trim();
   if (!text || text.startsWith('{')) return '';
-  const key = /^https?:/i.test(text) ? 'receipt' : 'record';
-  return '?' + key + '=' + encodeURIComponent(text);
+  if (/^https?:/i.test(text)) return '#receipt=' + encodeURIComponent(text);
+  return '?record=' + encodeURIComponent(text);
 }
 
 function el(tag, attributes, children) {
@@ -108,7 +112,7 @@ async function check(input) {
     renderReport(report);
     const search = shareableSearch(input);
     if (window.history && typeof window.history.replaceState === 'function') {
-      window.history.replaceState(null, '', search || window.location.pathname);
+      window.history.replaceState(null, '', window.location.pathname + search);
     }
   } catch (error) {
     document.getElementById('result').hidden = true;
@@ -135,7 +139,7 @@ function wire() {
       check(field.value);
     });
   }
-  const start = initialInput(window.location.search);
+  const start = initialInput(window.location.search, window.location.hash);
   if (start) {
     field.value = start;
     check(start);

@@ -51,6 +51,8 @@ test('this page, given another receipt link', () => {
   const inner = 'https://app.broadcastwell.com/s/' + TOKEN + '?verify=' + HASH;
   const parsed = parseInput('https://broadcastwell.github.io/receipt-verifier/?receipt=' + encodeURIComponent(inner));
   assert.deepEqual(parsed, { kind: 'decision', token: TOKEN, hash: HASH });
+  const inFragment = parseInput('https://broadcastwell.github.io/receipt-verifier/#receipt=' + encodeURIComponent(inner));
+  assert.deepEqual(inFragment, { kind: 'decision', token: TOKEN, hash: HASH });
 });
 
 test('receipt JSON in all three shapes, as objects and as text', () => {

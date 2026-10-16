@@ -56,7 +56,7 @@ The command prints one line per check, then the verdict and the verification id.
 
 ### Browser
 
-Open https://broadcastwell.github.io/receipt-verifier/ and paste a record id, a receipt link or a receipt JSON. A link can start the check: `?record=crm%7C1%7CChatGPT%7C1` or `?receipt=<receipt URL>`. The page runs the same library in your browser, keeps nothing and sends no data of yours anywhere; it only reads the public sources each result lists.
+Open https://broadcastwell.github.io/receipt-verifier/ and paste a record id, a receipt link or a receipt JSON. A link can start the check: `?record=crm%7C1%7CChatGPT%7C1`, or `#receipt=<receipt URL>` for a receipt link (the fragment never leaves your browser, so a share link stays private; `?receipt=` also works). The page runs the same library in your browser, keeps nothing and sends no data of yours anywhere; it only reads the public sources each result lists.
 
 ### Library
 

@@ -79,7 +79,7 @@ function parseUrl(text, depth) {
     throw new InputError('the URL does not parse');
   }
   const host = url.hostname.toLowerCase();
-  const inner = url.searchParams.get('receipt');
+  const inner = new URLSearchParams(url.hash.replace(/^#/, '')).get('receipt') || url.searchParams.get('receipt');
   if (inner) return parseInput(inner, depth + 1);
   const record = url.searchParams.get('record');
   if (record) {

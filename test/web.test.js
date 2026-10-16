@@ -6,18 +6,23 @@ import { initialInput, shareableSearch } from '../web/app.js';
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../web/style.css', import.meta.url), 'utf8');
 
-test('the page starts from ?record= or ?receipt=', () => {
+test('the page starts from ?record=, #receipt= or ?receipt=', () => {
+  const share = 'https://app.broadcastwell.com/s/' + 'a'.repeat(64);
   assert.equal(initialInput('?record=crm%7C1%7CChatGPT%7C1'), 'crm|1|ChatGPT|1');
+  assert.equal(initialInput('', '#receipt=' + encodeURIComponent(share)), share);
   assert.equal(initialInput('?receipt=' + encodeURIComponent('https://app.broadcastwell.com/public-fix/broadcastwell')), 'https://app.broadcastwell.com/public-fix/broadcastwell');
   assert.equal(initialInput(''), '');
-  assert.equal(initialInput('?other=1'), '');
+  assert.equal(initialInput('?other=1', '#other=1'), '');
 });
 
-test('a checked input becomes a shareable address, but JSON never goes in the URL', () => {
+test('a checked input becomes a shareable address, a receipt link only in the fragment, and JSON never in the URL', () => {
+  const share = 'https://app.broadcastwell.com/s/' + 'a'.repeat(64);
   assert.equal(shareableSearch('crm|1|ChatGPT|1'), '?record=crm%7C1%7CChatGPT%7C1');
-  assert.equal(shareableSearch('https://app.broadcastwell.com/public-fix/broadcastwell'), '?receipt=' + encodeURIComponent('https://app.broadcastwell.com/public-fix/broadcastwell'));
+  assert.equal(shareableSearch(share), '#receipt=' + encodeURIComponent(share));
+  assert.equal(shareableSearch('https://app.broadcastwell.com/public-fix/broadcastwell'), '#receipt=' + encodeURIComponent('https://app.broadcastwell.com/public-fix/broadcastwell'));
   assert.equal(shareableSearch('{"record_id":"crm|1|ChatGPT|1"}'), '');
   assert.equal(initialInput(shareableSearch('construction-project-management|q1|Google AI Mode|1')), 'construction-project-management|q1|Google AI Mode|1');
+  assert.equal(initialInput('', shareableSearch(share)), share);
 });
 
 test('the page has one h1, labelled input, one filled button and no outside scripts or fonts', () => {
