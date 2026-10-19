@@ -103,10 +103,11 @@ test('the copy keeps its rules: no dashes, no double hyphens in prose, no Gemini
   let fenced = false;
   for (const line of readme.split('\n')) {
     if (line.startsWith('```')) { fenced = !fenced; continue; }
-    if (fenced || line === '<!-- DOI badge: added after the v1.0.0 release is archived -->') continue;
+    if (fenced) continue;
     assert.ok(!line.includes(TWO_HYPHENS), 'README prose has two hyphens: ' + line);
   }
-  assert.ok(readme.includes('\n<!-- DOI badge: added after the v1.0.0 release is archived -->\n'));
+  // The placeholder became the badge once Zenodo archived v1.0.0 (test/doi.test.js pins the DOIs).
+  assert.ok(readme.includes('\n[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23465305.svg)](https://doi.org/10.5281/zenodo.23465305)\n'));
   assert.ok(readme.includes('This repository contains no engine code: no prompts, no question bank, no measurement or classification logic.'));
   for (const engine of ['ChatGPT', 'Claude', 'Perplexity', 'Google AI Overviews', 'Google AI Mode']) assert.ok(readme.includes(engine), engine);
 });
