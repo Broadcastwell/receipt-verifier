@@ -8,7 +8,7 @@ authors:
     email: hello@broadcastwell.com
 version: 1.0.0
 doi: 10.5281/zenodo.23465305
-date-released: 2026-10-15
+date-released: 2026-10-19
 license: MIT
 repository-code: "https://github.com/Broadcastwell/receipt-verifier"
 url: "https://broadcastwell.github.io/receipt-verifier/"
