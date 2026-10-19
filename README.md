@@ -1,6 +1,6 @@
 # Broadcastwell receipt verifier
 
-<!-- DOI badge: added after the v1.0.0 release is archived -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23465305.svg)](https://doi.org/10.5281/zenodo.23465305)
 
 We publish receipts for what AI answer engines say: which answer, to which question, on which engine, when it was captured, and a SHA-256 hash of the full answer text. This tool checks a receipt against the published dataset and the public sources it names, so anyone can test one of our claims without trusting us.
 
@@ -144,6 +144,10 @@ node scripts/fetch-fixtures.mjs
 The tests also hold the library to its own rules: ASCII only, no Node-only APIs in `src/`, no dependencies, nothing that looks like a key. `test/LIVE_RUN.txt` keeps the output of one live run, and `proof/` keeps the command line output on real receipts.
 
 To cite the tool, see `CITATION.cff`.
+
+## Cite it
+
+The software is archived on Zenodo. v1.0.0 has the DOI [10.5281/zenodo.23465306](https://doi.org/10.5281/zenodo.23465306); [10.5281/zenodo.23465305](https://doi.org/10.5281/zenodo.23465305) always resolves to the latest version. `CITATION.cff` carries the citation.
 
 ## Contact
 
